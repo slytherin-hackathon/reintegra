@@ -9,8 +9,8 @@ El foco grupal, va hacia los procesos de reintegracion social de los reclusos.
 ## Integrantes
 - Nahuel Pereira
 - Juan Ramirez
-- Ceci
-- Miguel
+- Cecilia Reyes
+- Miguel Dominguez
 - Joaquin Prono
 - Olaf Petersen
 
