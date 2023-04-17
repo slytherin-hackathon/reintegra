@@ -10,6 +10,8 @@ db.bind(provider='sqlite', filename='database.sqlite', create_db=True)
 
 #defino una entidad 'User' con campos de nombre de usuario unico (no debe de haber repetido) y contrasenha
 class User(db.Entity, UserMixin):
+    username = Required(str, unique=True)
+    email = Required(str)
     login = Required(str, unique=True)
     password = Required(str)
 
@@ -25,6 +27,22 @@ login_manager.login_view = 'login' #si un usuario no ha iniciado sesión y trata
 @login_manager.user_loader
 def load_user(user_id):
     return db.User.get(id=user_id)
+
+# Crear una ruta para el formulario de registro
+@app.route('/registro', methods=['GET', 'POST'])
+def registro():
+    if request.method == "POST":
+        username = request.form['nuevo Usuario']
+        email = request.form['ingresar email']
+        login = request.form['login']
+        password = request.form['ingrese su còdigo']
+        with db_session:
+            user= User(username = username, password = password)
+        return "Usuario registrado con èxito"
+    return render_template('.html')
+      
+  
+
 
 
 #Creo una ruta para el formulario de login
