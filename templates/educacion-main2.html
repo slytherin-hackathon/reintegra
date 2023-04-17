@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reintegra</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+  <header class="bg-blue-600 p-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <!-- Logo -->
+      <div class="flex items-center">
+        <img src="static/img/1x/fondo-transparente.png" alt="Logo" class="w-full h-full mr-4">
+        <h1 class="text-white text-lg font-bold">Reintegra</h1>
+      </div>
+      <!-- Barra de Navegación -->
+      <nav>
+        <ul class="flex space-x-4">
+          <li><button class="text-white">Psicosocial</button></li>
+          <li><button class="text-white">Laboral</button></li>
+          <li><button class="text-white">Educación</button></li>
+          <li><button class="text-white">Penal</button></li>
+        </ul>
+    </nav>
+      <div></div>
+ 
+    </div>
+  </header>
+  <main class="container mx-auto mt-8 grid grid-cols-12 h-screen">
+
+    <!-- Columna 1: Información Personal -->
+    <section class="bg-white col-span-3 border-black border-2">
+      <img src="https://via.placeholder.com/150" alt="Person" class="w-[150] h-[150] object-cover mb-4">
+      <p><span class="font-bold">Nombre:</span> Juan Antonio</p>
+      <p><span class="font-bold">Apellido:</span> Pérez Rodríguez</p>
+      <p><span class="font-bold">Nacimiento:</span> 01/01/2000</p>
+      <p><span class="font-bold">Doc. Identidad</span> 01/01/2000</p>
+    </section>
+    
+    <!-- Columna 2: Actualizaciones -->
+    
+    <section class="bg-white p-4 col-span-6 border-black border-2">
+    
+        <!-- Navegación Interna -->
+        <nav>
+            <ul class="flex space-x-4">
+              <li><button class="text-black p-2 bg-gray-200">Actividad</button></li>
+              <li><button class="text-black p-2 bg-gray-400">Informes</button></li>
+              <li><button class="text-black p-2 bg-gray-400">Estadísticas</button></li>
+            </ul>
+          </nav>
+    
+     <!-- Insertar Texto -->
+      <textarea class="w-full mb-6" placeholder="Agregar un comentario..."></textarea>
+
+      <!-- 🔴 PENDIENTE botón de enviar nota -->
+      <button class="rounded-full bg-gray-200 p-2 justify-items-end">Publicar</button>
+
+      <!-- Identificador de la Actividad -->
+      <div class="flex justify-end">
+        <p class="font-bold mx-1 p-1">Joaquín Prono, Psicólogo</p>
+        <p class="font-normal mx-1 p-1">15/04/2023</p>
+        <p class="font-normal m1-1 p-1">10:30 AM</p>
+      </div>
+      
+      <!-- Comentarios Técnicos Anteriores -->
+      <p>El paciente demuestra evolución en su proceso de aprendizaje.</p>
+      <div class="flex justify-end">
+        <p class="font-bold mx-1 p-1">Cecilia Reyes, Educadora</p>
+        <p class="font-normal mx-1 p-1">13/02/2023</p>
+        <p class="font-normal m1-1 p-1">10:30 AM</p>
+      </div>
+    </section>
+    <!-- Columna 3 -->
+    <section class="bg-white p-4 col-span-3 border-black border-2">
+      
+    <!-- 🔴 PENDIENTE En Blancooooo -->
+    </section>
+  </main>
+</body>
+</html>
