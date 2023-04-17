@@ -8,13 +8,13 @@ app = Flask(__name__)
 db = Database()
 db.bind(provider='sqlite', filename='database.sqlite', create_db=True)
 
-# Generate database tables
-db.generate_mapping(create_tables=True)
-
 #defino una entidad 'User' con campos de nombre de usuario unico (no debe de haber repetido) y contrasenha
-class UserLogin(db.Entity, UserMixin):
+class User(db.Entity, UserMixin):
     login = Required(str, unique=True)
     password = Required(str)
+
+# Generate database tables
+db.generate_mapping(create_tables=True)
 
 
 login_manager = LoginManager(app)  #manejar el proceso de inicio de sesion y autenticacion de usuarios
