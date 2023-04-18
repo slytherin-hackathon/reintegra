@@ -69,7 +69,7 @@ def login():
 @app.route('/')
 def index():
     if 'email' in session:
-        return render_template('educacion-main.html', email=session['email'])
+        return render_template('educacion-main3.html', email=session['email'])
     else:
         return redirect(url_for('login'))
 
@@ -77,3 +77,4 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    print("test")
