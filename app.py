@@ -4,7 +4,7 @@ from pony.flask import Pony
 from database import *
 from routes.ppl import routing
 from routes.otc import routingOTC
-
+from routes.ps import routingPS
 # Configuración de la aplicación
 UPLOAD_FOLDER = '/img/ppl'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
@@ -27,6 +27,7 @@ def upload():
 # URLS routing
 app.register_blueprint( routing, url_prefix='/ppl')
 app.register_blueprint( routingOTC, url_prefix='/otc')
+app.register_blueprint( routingPS, url_prefix='/ps')
 
 
 #manejar el proceso de inicio de sesion y autenticacion de usuarios
