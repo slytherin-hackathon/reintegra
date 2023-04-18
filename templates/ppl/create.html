@@ -12,9 +12,9 @@
         {{ form.fecha_nacimiento.label }} {{ form.fecha_nacimiento }}
         {{ form.genero.label }} {{ form.genero }}
         {{ form.documento_identidad.label }} {{ form.documento_identidad }}
-        {{ form.fotografia.label }} {{ form.fotografia }}
+        <!-- { form.fotografia.label }} { form.fotografia }} -->
         <input type="submit" value="Guardar">
     </form>
-    <a href="{{ url_for('index') }}">Volver a la lista de Personas Privadas de Libertad</a>
+    <a href="{{ url_for('ppl/index') }}">Volver a la lista de Personas Privadas de Libertad</a>
 </body>
 </html>

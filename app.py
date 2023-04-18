@@ -3,6 +3,7 @@ from flask_login import LoginManager, login_required
 from pony.flask import Pony
 from database import *
 from routes.ppl import routing
+from routes.otc import routingOTC
 
 # Configuración de la aplicación
 UPLOAD_FOLDER = '/img/ppl'
@@ -25,6 +26,8 @@ def upload():
 
 # URLS routing
 app.register_blueprint( routing, url_prefix='/ppl')
+app.register_blueprint( routingOTC, url_prefix='/otc')
+
 
 #manejar el proceso de inicio de sesion y autenticacion de usuarios
 login_manager = LoginManager(app)  
