@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Formulario de reporte psicológico</title>
+</head>
+<body>
+	<h1>Formulario de reporte psicológico</h1>
+	<form method="POST" action="{{ url_for('insertar_reporte_psicologico') }}">
+		<label for="id_persona_privada">ID Persona Privada:</label><br>
+		<input type="number" id="id_persona_privada" name="id_persona_privada" required><br><br>
+		<label for="fecha_evaluacion">Fecha de Evaluación:</label><br>
+		<input type="date" id="fecha_evaluacion" name="fecha_evaluacion" required><br><br>
+		<label for="diagnostico">Diagnóstico:</label><br>
+		<textarea id="diagnostico" name="diagnostico" rows="4" cols="50" required></textarea><br><br>
+		<label for="recomendaciones">Recomendaciones:</label><br>
+		<textarea id="recomendaciones" name="recomendaciones" rows="4" cols="50" required></textarea><br><br>
+		<input type="submit" value="Enviar">
+	</form>
+</body>
+</html>

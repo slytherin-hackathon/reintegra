@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Modificar Reporte</title>
+  </head>
+  <body>
+    <h1>Modificar Reporte</h1>
+    <form method="POST">
+      {{ form.hidden_tag() }}
+      <label for="id_persona_privada">ID Persona Privada:</label>
+      {{ form.id_persona_privada }}
+      <br>
+      <label for="fecha_evaluacion">Fecha de Evaluación:</label>
+      {{ form.fecha_evaluacion }}
+      <br>
+      <label for="diagnostico">Diagnóstico:</label>
+      {{ form.diagnostico }}
+      <br>
+      <label for="recomendaciones">Recomendaciones:</label>
+      {{ form.recomendaciones }}
+      <br>
+      <input type="submit" value="Eliminar">
+    </form>
+  </body>
+</html>
