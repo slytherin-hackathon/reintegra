@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Persona Privada de Libertad</title>
+</head>
+<body>
+    <h1>Crear Persona Privada de Libertad</h1>
+    <form method="post" action="{{ url_for('ppl.create') }}">
+        {{ form.csrf_token }}
+        {{ form.nombre.label }} {{ form.nombre }}
+        {{ form.apellido.label }} {{ form.apellido }}
+        {{ form.fecha_nacimiento.label }} {{ form.fecha_nacimiento }}
+        {{ form.genero.label }} {{ form.genero }}
+        {{ form.documento_identidad.label }} {{ form.documento_identidad }}
+        {{ form.fotografia.label }} {{ form.fotografia }}
+        <input type="submit" value="Guardar">
+    </form>
+    <a href="{{ url_for('index') }}">Volver a la lista de Personas Privadas de Libertad</a>
+</body>
+</html>
