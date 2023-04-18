@@ -1,12 +1,34 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_login import LoginManager, login_required
+from pony.flask import Pony
 from database import *
+from routes.ppl import routing
 
+# Configuración de la aplicación
+UPLOAD_FOLDER = '/img/ppl'
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
+
+# Inicializacion de la app
 app = Flask(__name__)
+app.secret_key = 'mysecretkey'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+
+@app.route('/upload', methods=['POST'])
+def upload():
+    file = request.files['file']
+    filename = file.filename
+    image_data = file.read()
+    image = Image(filename=filename, image_data=image_data)
+    db.commit()
+    return 'Image uploaded successfully'
+
+# URLS routing
+app.register_blueprint( routing, url_prefix='/ppl')
 
 #manejar el proceso de inicio de sesion y autenticacion de usuarios
 login_manager = LoginManager(app)  
-
+Pony(app)
 #si un usuario no ha iniciado sesión y trata de acceder a una página protegida, será redirigido a la vista de inicio de sesión.
 login_manager.login_view = 'login' 
 

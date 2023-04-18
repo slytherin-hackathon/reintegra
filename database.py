@@ -3,10 +3,10 @@ from flask_login import UserMixin
 from pony.orm import *
 from datetime import date
 
-app = Flask(__name__)
-
+db = Database()
 # Set up SQLite database connection
 db = Database()
+
 db.bind(provider='sqlite', filename='database.sqlite', create_db=True)
 
 # Define models using Pony ORM entities
@@ -17,7 +17,7 @@ class PersonaPrivadaDeLibertad(db.Entity):
     fecha_nacimiento = Required(date)
     genero = Required(str)
     documento_identidad = Required(str)
-    fotografia = Optional(str)
+    fotografia = Required(str)
     organismo_tecnico_criminologico = Set('OrganismoTecnicoCriminologico') # Define reverse attribute
     plan_salida_libertad = Set('PlanSalidaLibertad') # Define reverse attribute
     reporte_psicologico = Set('ReportePsicologico') # Define reverse attribute
@@ -53,11 +53,16 @@ class ReporteBuenaConducta(db.Entity):
     conducta = Required(str)
     observaciones = Required(LongStr)
 
-# Define UserLogin entity
-class UserLogin(db.Entity, UserMixin):
-    id = PrimaryKey(int, auto=True)
-    login = Required(str, unique=True)
+class User(db.Entity, UserMixin):
+    username = Required(str, unique=True)
+    email = Required(str)
     password = Required(str)
 
+class Image(db.Entity):
+    id_image = PrimaryKey(int, auto=True)
+    filename = Required(str)
+    image = Required(LongStr)
+    persona_privada_de_libertad = Optional(PersonaPrivadaDeLibertad) # Update reference to entity
+    
 # Generate database tables
-db.generate_mapping(create_tables=True)
+db.generate_mapping(create_tables=True)  # This will create tables for registered models
