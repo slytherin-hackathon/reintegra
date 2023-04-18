@@ -3,6 +3,7 @@ from flask_login import LoginManager, login_required
 from pony.flask import Pony
 from database import *
 from routes.ppl import routing
+import setup
 
 # Configuración de la aplicación
 UPLOAD_FOLDER = '/img/ppl'

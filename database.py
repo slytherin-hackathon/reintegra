@@ -17,7 +17,9 @@ class PersonaPrivadaDeLibertad(db.Entity):
     fecha_nacimiento = Required(date)
     genero = Required(str)
     documento_identidad = Required(str)
-    fotografia = Required(str)
+    fecha_de_ingreso = Required(date)
+    fecha_de_salida = Required(date)
+    descripcion = Required(LongStr)
     organismo_tecnico_criminologico = Set('OrganismoTecnicoCriminologico') # Define reverse attribute
     plan_salida_libertad = Set('PlanSalidaLibertad') # Define reverse attribute
     reporte_psicologico = Set('ReportePsicologico') # Define reverse attribute
@@ -62,7 +64,7 @@ class Image(db.Entity):
     id_image = PrimaryKey(int, auto=True)
     filename = Required(str)
     image = Required(LongStr)
-    persona_privada_de_libertad = Optional(PersonaPrivadaDeLibertad) # Update reference to entity
+    # persona_privada_de_libertad = Optional(PersonaPrivadaDeLibertad) # Update reference to entity
     
 # Generate database tables
 db.generate_mapping(create_tables=True)  # This will create tables for registered models
