@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Update OrganismoTecnicoCriminologico</title>
+</head>
+<body>
+	<h1>Update OrganismoTecnicoCriminologico</h1>
+	<form method="POST" action="{{ url_for('otc.update', id=id) }}">
+		{{ form.csrf_token }}
+		<div>
+			{{ form.id_persona_privada.label }}
+			{{ form.id_persona_privada }}
+		</div>
+		<div>
+			{{ form.fecha_evaluacion.label }}
+			{{ form.fecha_evaluacion }}
+		</div>
+		<div>
+			{{ form.riesgo.label }}
+			{{ form.riesgo }}
+		</div>
+		<div>
+			{{ form.observaciones.label }}
+			{{ form.observaciones }}
+		</div>
+		<button type="submit">Update</button>
+	</form>
+</body>
+</html>
