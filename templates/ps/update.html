@@ -1,0 +1,32 @@
+<!-- templates/ps/update.html -->
+
+<h1>Editar plan de salida de libertad</h1>
+
+<form method="POST" action="{{ url_for('ps.update', id=id) }}">
+  {{ form.csrf_token }}
+  {{ form.hidden_tag() }}
+  <p>
+    {{ form.id_persona_privada.label }}<br>
+    {{ form.id_persona_privada }}
+  </p>
+  <p>
+    {{ form.fecha_inicio.label }}<br>
+    {{ form.fecha_inicio }}
+  </p>
+  <p>
+    {{ form.fecha_fin.label }}<br>
+    {{ form.fecha_fin }}
+  </p>
+  <p>
+    {{ form.actividades.label }}<br>
+    {{ form.actividades }}
+  </p>
+  <p>
+    {{ form.seguimiento.label }}<br>
+    {{ form.seguimiento }}
+  </p>
+  <p>
+    <input type="submit" value="Guardar cambios">
+    <a href="{{ url_for('ps.index') }}">Cancelar</a>
+  </p>
+</form>
