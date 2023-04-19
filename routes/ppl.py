@@ -13,7 +13,8 @@ def index():
 @routing.route('/create', methods=['GET', 'POST'])
 def create():
     form = PersonaForm()
-    if request.method == 'POST'and form.validate_on_submit():
+    print(f"este es el formulariooooooooooooo {form}")
+    if request.method == 'POST' and form.validate_on_submit():
             persona = PersonaPrivadaDeLibertad(
                 nombre=form.nombre.data,
                 apellido=form.apellido.data,
@@ -25,7 +26,6 @@ def create():
                 descripcion=form.descripcion.data
             )
             db.commit()
-            print({'persona': persona.to_dict()})
             return redirect(url_for('ppl.index'))
     elif request.method == 'GET':
         return render_template('ppl/create.html', form=form)

@@ -13,33 +13,30 @@
   <form method="POST" action="{{ url_for('otc.create') }}">
     {{ form.csrf_token }}
 
+
     <!-- ID de la PPL -->
     <div class="mb-4">
-        <label class="block text-gray-700 font-bold mb-2" for="{{ form.id_persona_privada.id }}">{{ form.id_persona_privada.label }}</label>
-        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="{{ form.id_persona_privada.id }}" name="{{ form.id_persona_privada.name }}" type="text" placeholder="1234567890" />
-    </div>  
+      <div class="block text-gray-700 font-bold mb-2">{{ form.id_persona_privada.label }}</div>
+      <div class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> {{ form.id_persona_privada }} </div>
+  </div>  
 
     <!-- RIESGO — PENDIENTE-->
     <div class="mb-4">
-      <label class="block text-gray-700 font-bold mb-2" for="prison-id">{{ form.riesgo.label }}</label>
-      <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="prison-id">
-        <option value="1">Bajo</option>
-        <option value="2">Medio</option>
-        <option value="3">Alto</option>
-      </select>
-    </div>
+        <label class="block text-gray-700 font-bold mb-2">{{ form.riesgo.label }}</label>
+        <div class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> {{ form.riesgo }} </div>
+    </div>  
     
     <!-- FECHA DE REPORTE -->
     <div class="mb-4">
-        <label class="block text-gray-700 font-bold mb-2" for="{{ form.fecha_evaluacion.id }}">{{ form.fecha_evaluacion.label }}</label>
-        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="{{ form.fecha_evaluacion.id }}" name="{{ form.fecha_evaluacion.name }}" type="date" />
-    </div>
+      <label class="block text-gray-700 font-bold mb-2">{{ form.fecha_evaluacion.label }}</label>
+      <div class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> {{ form.fecha_evaluacion }} </div>
+  </div>  
 
     <!-- OBSERVACIONES -->
     <div class="mb-4">
-        <label class="block text-gray-700 font-bold mb-2" for="{{ form.observaciones.id }}">{{ form.observaciones.label }}</label>
-        <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="{{ form.observaciones.id }}" name="{{ form.observaciones.name }}" rows="4"></textarea>
-    </div>
+      <label class="block text-gray-700 font-bold mb-2">{{ form.observaciones.label }}</label>
+      <div class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> {{ form.observaciones }} </div>
+  </div>    
 
     <!-- BOTÓN -->
     <button type="submit" class="w-full py-2 bg-[#364F6B] text-white font-bold rounded-md hover:bg-blue-500">Crear</button>
