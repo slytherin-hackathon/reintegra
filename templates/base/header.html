@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    {% block head %}
+
+    {% endblock %}
+</head>
+<body>
+    {% block header %}
+    <section class="bg-slate-200">
+        <header class="bg-[#112D4E]">
+          <div class="container mx-auto flex flex-wrap justify-between items-center py-4">
+            <!-- Logo -->
+            <div class="flex items-center">
+              <img src="{{ url_for('static', filename='/img/logo/2x/logo-transparente-fondos-oscuros@2x.png') }}" alt="Logo" class="w-[150px] h-full mr-4">
+            </div>
+            
+            <!-- Barra de Navegación -->
+            <nav class="hidden md:flex">
+              <ul class="flex space-x-4 items-center">
+                <li><a href="" class="text-white px-3 py-2 rounded hover:bg-blue-500">Inicio</a></li>
+                <li><a href="" class="text-white px-3 py-2 rounded hover:bg-blue-500">Crear PPL</a></li>
+                <li><a href="" class="text-white px-3 py-2 rounded hover:bg-blue-500">Modificar PPL</a></li>
+                <li><a href="" class="text-white px-3 py-2 rounded hover:bg-blue-500">Crear Pulsera</a></li>
+                <li><a href="" class="text-white px-3 py-2 rounded hover:bg-blue-500">Asignar Pulsera</a></li>
+                <li>
+                  <form class="relative">
+                    <input type="search" class="rounded-full pl-3 pr-8 py-2 bg-gray-200 text-black focus:outline-none focus:bg-white" placeholder="Buscar">
+                    <button type="submit" class="absolute right-0 top-0 mt-2 mr-2"></button>
+                  </form>
+                </li>
+                <!-- Usuario que Inició Sesión -->
+                <li>
+                  <span class="text-white px-3">{ fulano_logueado }</span>
+                  <a href="{ url_for('logoff') }" class="text-xs text-white px-3 py-2 rounded hover:bg-blue-500">Cerrar Sesión</a>
+                </li>
+              </ul>
+            </nav>
+            <button class="md:hidden focus:outline-none">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-6 w-6 text-white">
+                <path fill-rule="evenodd" d="M4 5a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zm0 6a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zm1 5a1 1 0 100 2h10a1 1 0 100-2H5z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+          </div>
+        </header>
+    </section>
+    {% endblock %}
+    {% block content %}
+    
+    {% endblock %}
+</body>
+</html>

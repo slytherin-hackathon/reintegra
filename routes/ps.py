@@ -7,7 +7,7 @@ routingPS = Blueprint('ps', __name__)
 @routingPS.route('/')
 def index():
     ps_list = PlanSalidaLibertad.select()
-    return render_template('ps/index.html', ps_list=ps_list)
+    return render_template('base/header.html', ps_list=ps_list)
 
 
 
