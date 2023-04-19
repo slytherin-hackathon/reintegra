@@ -1,29 +1,50 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Update OrganismoTecnicoCriminologico</title>
-</head>
-<body>
-	<h1>Update OrganismoTecnicoCriminologico</h1>
-	<form method="POST" action="{{ url_for('otc.update', id=id) }}">
-		{{ form.csrf_token }}
-		<div>
-			{{ form.id_persona_privada.label }}
-			{{ form.id_persona_privada }}
-		</div>
-		<div>
-			{{ form.fecha_evaluacion.label }}
-			{{ form.fecha_evaluacion }}
-		</div>
-		<div>
-			{{ form.riesgo.label }}
-			{{ form.riesgo }}
-		</div>
-		<div>
-			{{ form.observaciones.label }}
-			{{ form.observaciones }}
-		</div>
-		<button type="submit">Update</button>
-	</form>
-</body>
-</html>
+{% extends 'base/header.html' %}
+
+{% block head %}
+	<title>OTC - Actualizar Registro</title>
+{% endblock %}
+
+
+{% block content %}
+<div class="max-w-xl mx-auto my-4 p-4 bg-white rounded shadow">
+    <!-- TÍTULO DEL FORM -->
+  <h1 class="text-2xl text-center font-bold text-gray-800 mb-4">Actualizar Reporte — Organismo Técnico Criminológico</h1>
+
+  <form method="POST" action="{{ url_for('otc.update', id=id) }}">
+	{{ form.csrf_token }}
+
+    <!-- ID de la PPL -->
+    <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="{{ form.id_persona_privada.id }}">{{ form.id_persona_privada.label }}</label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="{{ form.id_persona_privada.id }}" name="{{ form.id_persona_privada.name }}" type="text" placeholder="1234567890" />
+    </div>  
+
+    <!-- RIESGO — PENDIENTE-->
+    <div class="mb-4">
+      <label class="block text-gray-700 font-bold mb-2" for="prison-id">{{ form.riesgo.label }}</label>
+      <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="prison-id">
+        <option value="1">Bajo</option>
+        <option value="2">Medio</option>
+        <option value="3">Alto</option>
+      </select>
+    </div>
+    
+    <!-- FECHA DE REPORTE -->
+    <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="{{ form.fecha_evaluacion.id }}">{{ form.fecha_evaluacion.label }}</label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="{{ form.fecha_evaluacion.id }}" name="{{ form.fecha_evaluacion.name }}" type="date" />
+    </div>
+
+    <!-- OBSERVACIONES -->
+    <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="{{ form.observaciones.id }}">{{ form.observaciones.label }}</label>
+        <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="{{ form.observaciones.id }}" name="{{ form.observaciones.name }}" rows="4"></textarea>
+    </div>
+
+    <!-- BOTÓN -->
+    <button type="submit" class="w-full py-2 bg-[#364F6B] text-white font-bold rounded-md hover:bg-blue-500">Actualizar</button>
+    
+                          
+  </form>
+</div>
+{% endblock %}
