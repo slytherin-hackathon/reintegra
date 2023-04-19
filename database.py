@@ -25,6 +25,8 @@ class PersonaPrivadaDeLibertad(db.Entity):
     reporte_psicologico = Set('ReportePsicologico') # Define reverse attribute
     reporte_buena_conducta = Set('ReporteBuenaConducta') # Define reverse attribute
     
+    def __str__(self):
+        return str(self.id_persona_privada)
 
 class OrganismoTecnicoCriminologico(db.Entity):
     id_otc = PrimaryKey(int, auto=True)

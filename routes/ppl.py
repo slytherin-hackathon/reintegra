@@ -14,7 +14,6 @@ def index():
 def create():
     form = PersonaForm()
     if request.method == 'POST'and form.validate_on_submit():
-            # filename = form.save_fotografia('img/ppl/')  # Specify the folder to save the file
             persona = PersonaPrivadaDeLibertad(
                 nombre=form.nombre.data,
                 apellido=form.apellido.data,
@@ -33,9 +32,12 @@ def create():
     elif request.method == 'POST' and not form.validate_on_submit():
         return render_template('ppl/create.html', form=form)
 
-@routing.route('/edit/<int:persona_id>', methods=['GET', 'POST'])
+@routing.route('/edit/<persona_id>', methods=['GET', 'POST'])
 def edit(persona_id):
+    print('persona_id: ', persona_id)
+
     persona = PersonaPrivadaDeLibertad.get(id_persona_privada=persona_id)
+    print('persona: ', persona)
     form = PersonaForm(obj=persona)
     if request.method == 'POST':
         if form.validate_on_submit():
@@ -49,9 +51,9 @@ def edit(persona_id):
             )
             db.commit()
             return redirect(url_for('ppl.index'))
-    return render_template('ppl/edit.html', form=form, persona=persona)
+    return render_template('ppl/update.html', form=form, persona=persona)
 
-@routing.route('/delete/<int:persona_id>', methods=['POST'])
+@routing.route('/delete/<persona_id>', methods=['POST'])
 def delete(persona_id):
     persona = PersonaPrivadaDeLibertad.get(id_persona_privada=persona_id)
     persona.delete()

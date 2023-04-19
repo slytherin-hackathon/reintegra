@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tailwind CSS Example</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Librería de Charts y Estadísticas -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Script para controlar la Librería -->
+
+<script>
+  function createStackedBarChart() {
+    // Llama al elemento Canvas
+    const ctx = document.getElementById('stacked-bar-chart').getContext('2d');
+
+    // Genera un gráfico de barras (Stacked Bar Chart) https://www.chartjs.org/docs/latest/samples/bar/stacked.html
+    const chart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+        datasets: [{
+          label: 'Horas Taller',
+          data: [12, 19, 3, 5],
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1
+        }, {
+          label: 'Horas Psicoterapia',
+          data: [7, 11, 5, 8],
+          backgroundColor: 'rgba(153, 102, 255, 0.2)',
+          borderColor: 'rgba(153, 102, 255, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            stacked: true
+          },
+          x: {
+            stacked: true
+          }
+        },
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          title: {
+            display: true,
+            text: 'Horas Acumuladas'
+          }
+        }
+      }
+    });
+  }
+
+  // Call the function when the window finishes loading
+  window.onload = createStackedBarChart;
+  </script>
+
+
+
+</head>
+<body class="bg-slate-200">
+    <header class="bg-[#112D4E]">
+        <div class="container mx-auto flex justify-between items-center py-4">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <img src="static/img/logo/2x/logo-transparente-fondos-oscuros@2x.png" alt="Logo" class="w-[150px] h-full mr-4">
+          </div>
+          
+          <!-- Barra de Navegación -->
+          <nav class="hidden md:flex">
+            <ul class="flex space-x-4 items-center">
+              <li><a href="" class="text-white px-3 py-2 rounded hover:bg-blue-500">Inicio</a></li>
+              <li><a href="" class="text-white px-3 py-2 rounded hover:bg-blue-500">Crear PPL</a></li>
+              <li><a href="" class="text-white px-3 py-2 rounded hover:bg-blue-500">Modificar PPL</a></li>
+              <li><a href="" class="text-white px-3 py-2 rounded hover:bg-blue-500">Crear Pulsera</a></li>
+              <li><a href="" class="text-white px-3 py-2 rounded hover:bg-blue-500">Asignar Pulsera</a></li>
+              <li>
+                <form class="relative">
+                  <input type="search" class="rounded-full pl-3 pr-8 py-2 bg-gray-200 text-black focus:outline-none focus:bg-white" placeholder="Buscar">
+                  <button type="submit" class="absolute right-0 top-0 mt-2 mr-2"></button>
+                </form>
+              </li>
+              <!-- Usuario que Inició Sesión -->
+              <li>
+                <span class="text-white px-3">{{ fulano_logueado }}</span>
+                <a href="{{ url_for('logoff') }}" class="text-xs text-white px-3 py-2 rounded hover:bg-blue-500">Cerrar Sesión</a>
+              </li>
+            </ul>
+          </nav>
+          <button class="md:hidden focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-6 w-6 text-white">
+              <path fill-rule="evenodd" d="M4 5a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zm0 6a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zm1 5a1 1 0 100 2h10a1 1 0 100-2H5z" clip-rule="evenodd"/>
+            </svg>
+          </button> 
+        </div>
+      </header>
+    
+<!-- Container de Inicio, 1 Elemento -->
+<div class="container mx-auto flex items-center min-h-screen">
+    <h1 class="text-2xl text-center font-bold text-gray-800 mb-4">Buscador de Personas Privadas de Libertad</h1>
+    <form>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="status">Estado:</label>
+        <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="status">
+          <option value="1">Procesado</option>
+          <option value="2">Condenado</option>
+          <option value="3">Liberado</option>
+        </select>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="name">Nombre:</label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Inserte el Nombre" />
+      </div>
+      
+      <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="id-number">Número de Documento:</label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="id-number" type="text" placeholder="1234567890" />
+      </div>
+      
+      <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="prison-id">Penitenciaría:</label>
+        <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="prison-id">
+          <option value="1">Penitenciaría Regional de Encarnación</option>
+          <option value="2">Penitenciaría Regional de Misiones</option>
+          <option value="3">Penitenciaría Regional de Coronel Oviedo</option>
+        </select>
+      </div>
+    </form>
+</div>
+<!-- Container para el Overview, dos Columnas -->
+<div class="flex gap-4">
+  <h1 class="text-4xl font-bold mb-4" id="Title">Overview</h1>
+  <!-- Columna 1 — Botones -->
+  <div class="buttons mb-6 w-35" id="Piled-Buttons">
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">Button 1</button>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">Button 2</button>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">Button 3</button>
+  </div>
+  <!-- Columna 2 - Gráficos -->
+  <div id="chart-container" class="w-65 mt-4">
+    <canvas id="stacked-bar-chart"></canvas>
+  </div>
+</div>
+</div>
+</body>
+</html>
+
+

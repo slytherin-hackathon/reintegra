@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reintegra - Nuevo Usuario</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-200 flex justify-center">
+  <div class="bg-white shadow-md rounded-[24px] w-[30%] my-16 px-6 py-4">
+    <header class="text-center">
+      <img src="static/img/logo/2x/isotipo-transparente@2x.png" alt="Logo" class="mx-auto mb-4">
+      <h1 class="text-3xl text-dark font-bold mb-2">Reintegra</h1>
+      <h2 class="text-xl text-dark font-bold">Registro de Nuevos Usuarios</h2>
+    </header>
+    <form action="/signup" method="POST" class="mt-8">
+      <div class="mb-4">
+        <label for="name" class="block text-dark font-bold mb-2">Nombre Completo</label>
+        <input type="text" id="name" name="name" placeholder="Nombre Completo" class="w-full px-3 py-2 border border-accent rounded-md focus:border-2 focus:outline-none">
+      </div>
+      <div class="mb-4">
+        <label for="email" class="block text-dark font-bold mb-2">Email</label>
+        <input type="email" id="email" name="email" placeholder="Email" class="w-full px-3 py-2 border border-accent rounded-md focus:border-2 focus:outline-none">
+      </div>
+      <div class="mb-6">
+        <label for="password" class="block text-dark font-bold mb-2">Password</label>
+        <input type="password" id="password" name="password" placeholder="Password" class="w-full px-3 py-2 border border-accent rounded-md focus:border-2 focus:outline-none">
+        <button type="submit" class="w-full py-2 bg-[#364F6B] text-white font-bold rounded-md hover:bg-blue-500">Registrarse</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
