@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
+{% extends 'base/header.html' %}
+{% block head %}
 	<title>OrganismoTecnicoCriminologico List</title>
-</head>
-<body>
+{% endblock %}
+{% block content %}
+<div class="bg-white shadow-md rounded-[24px] w-[50%] h-96 my-16 px-6 py-4">
 	<h1>OrganismoTecnicoCriminologico List</h1>
-	<table>
+	<table class="">
 		<thead>
-			<tr>
+			<tr class="justify-items-center">
 				<th>ID</th>
 				<th>ID Persona Privada de Libertad</th>
 				<th>Fecha de Evaluación</th>
@@ -33,5 +33,5 @@
 		</tbody>
 	</table>
 	<a href="{{ url_for('otc.create') }}">Create New</a>
-</body>
-</html>
+</div>
+{% endblock %}
