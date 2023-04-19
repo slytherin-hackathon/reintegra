@@ -61,6 +61,15 @@
         </div>
 
         <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="prison-id">Nivel de Riesgo:</label>
+          <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="prison-id">
+            <option value="1">Bajo</option>
+            <option value="2">Medio</option>
+            <option value="3">Alto</option>
+          </select>
+        </div>
+        
+        <div class="mb-4">
           <label class="block text-gray-700 font-bold mb-2" for="name">Nombre:</label>
           <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Inserte el Nombre" />
         </div>
@@ -114,19 +123,12 @@
             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="date-of-admission" type="date" />
         </div>
 
-        <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" for="prison-id">Nivel de Riesgo:</label>
-            <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="prison-id">
-                  <option value="1">Bajo</option>
-                  <option value="2">Medio</option>
-                  <option value="3">Alto</option>
-        </div>
-
         <!-- Adjuntar Fotografía -->
         <div class="mb-4">
             <label class="block text-gray-700 font-bold mb-2" for="profile-picture">Adjuntar Fotografía:</label>
             <input type="file" id="profile-picture" name="profile-picture" accept=".jpg, .jpeg, .png">
-          </div>
+
+        </div>
                               
       </form>
     </div>
