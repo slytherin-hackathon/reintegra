@@ -1,56 +1,23 @@
 {% extends 'base/header.html' %}
 
 {% block head %}
-	<title>PPL - Crear Registro</title>
+	<title>OTC - Crear Registro</title>
 {% endblock %}
 
-
 {% block content %}
-
-
-<!-- {{ form.documento_identidad.label }}
-{{ form.documento_identidad }} -->
-
-{{ form.nombre.label }}
-{{ form.nombre }}
-
-{{ form.apellido.label }}
-{{ form.apellido }}
-
-{{ form.genero.label }}
-{{ form.genero }}
-
-{{ form.fecha_nacimiento.label }}
-{{ form.fecha_nacimiento }}
-
-{{ form.penitenciaria.label(class_="block text-dark font-bold mb-2")}}
-{{ form.penitenciaria}}
-
-{{ form.fecha_de_ingreso.label }}
-{{ form.fecha_de_ingreso }}
-
-{{ form.fecha_de_salida.label }}
-{{ form.fecha_de_salida }}
-
-{{ form.descripcion.label }}
->{{ form.descripcion }}
-
-
-{% block content %}
-<div class="max-w-xl mx-auto my-4 p-4 bg-white rounded shadow">
+<div class="max-w-xl mt-10 mx-auto my-4 p-4 bg-white rounded shadow">
     <!-- TÍTULO DEL FORM -->
-  <h1 class="text-2xl text-center font-bold text-gray-800 mb-4">Crear — Persona Privada de Libertad</h1>
+  <h1 class="text-2xl text-center font-bold text-gray-800 mb-4">Crear Reporte — Organismo Técnico Criminológico</h1>
 
-  <form method="POST" action="{{ url_for('ppl.create', id=id) }}">
-	{{ form.csrf_token }}
+  <!-- Atender que el URL del Action esté correcto -->
+  <form method="POST" action="{{ url_for('otc.create') }}">
+    {{ form.csrf_token }}
 
-    <!-- Documento de la PPL -->
+    <!-- ID de la PPL -->
     <div class="mb-4">
-      <label class="block text-gray-700 font-bold mb-2" for="{{ form.documento_identidad.id }}">{{ form.documento_identidad.label }}</label>
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="{{ form.documento_identidad.id }}" name="{{ form.documento_identidad.name }}" type="text" placeholder="1234567890" />
-  </div>
-
-  
+        <label class="block text-gray-700 font-bold mb-2" for="{{ form.id_persona_privada.id }}">{{ form.id_persona_privada.label }}</label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> {{ form.id_persona_privada.id }}</div>/>
+    </div>  
 
     <!-- RIESGO — PENDIENTE-->
     <div class="mb-4">
@@ -75,7 +42,7 @@
     </div>
 
     <!-- BOTÓN -->
-    <button type="submit" class="w-full py-2 bg-[#364F6B] text-white font-bold rounded-md hover:bg-blue-500">Actualizar</button>
+    <button type="submit" class="w-full py-2 bg-[#364F6B] text-white font-bold rounded-md hover:bg-blue-500">Crear</button>
     
                           
   </form>
