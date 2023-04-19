@@ -17,7 +17,9 @@ class PersonaPrivadaDeLibertad(db.Entity):
     fecha_nacimiento = Required(date)
     genero = Required(str)
     documento_identidad = Required(str)
-    # fotografia = Required(str)
+    fecha_de_ingreso = Required(date)
+    fecha_de_salida = Required(date)
+    descripcion = Required(LongStr)
     organismo_tecnico_criminologico = Set('OrganismoTecnicoCriminologico') # Define reverse attribute
     plan_salida_libertad = Set('PlanSalidaLibertad') # Define reverse attribute
     reporte_psicologico = Set('ReportePsicologico') # Define reverse attribute
