@@ -1,3 +1,5 @@
+
+
 from flask import Flask, render_template, request, redirect, url_for
 from flask_wtf import FlaskForm 
 from flask_wtf.file import FileField, FileAllowed
@@ -70,11 +72,12 @@ class OTCForm(FlaskForm):
     riesgo = StringField('Riesgo', validators=[DataRequired()])
     observaciones = TextAreaField('Observaciones', validators=[DataRequired()])
 
-class PSform(FlaskForm):
+class PlanSalidaForm(FlaskForm):
 
     id_persona_privada = StringField('ID Persona Privada de Libertad', validators=[DataRequired()])
     fecha_inicio = DateField('Fecha de Inicio', format='%Y-%m-%d', validators=[DataRequired()])
     fecha_fin = DateField('Fecha de Fin', format='%Y-%m-%d', validators=[DataRequired()])
+
     actividades = TextAreaField('Actividades', validators=[DataRequired()])
     seguimiento = TextAreaField('Seguimiento', validators=[DataRequired()])
 
