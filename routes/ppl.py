@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from database import * 
+from database import *
 from forms import PersonaForm
 
 routing = Blueprint('ppl', __name__)
@@ -13,20 +13,24 @@ def index():
 @routing.route('/create', methods=['GET', 'POST'])
 def create():
     form = PersonaForm()
-    if request.method == 'POST':
-        if form.validate_on_submit():
-            # filename = form.save_fotografia('img/ppl/')  # Specify the folder to save the file
+    if request.method == 'POST'and form.validate_on_submit():
             persona = PersonaPrivadaDeLibertad(
                 nombre=form.nombre.data,
                 apellido=form.apellido.data,
                 fecha_nacimiento=form.fecha_nacimiento.data,
                 genero=form.genero.data,
                 documento_identidad=form.documento_identidad.data,
-                # fotografia=filename  # Store the filename in the database
+                fecha_de_ingreso=form.fecha_de_ingreso.data,
+                fecha_de_salida=form.fecha_de_salida.data,
+                descripcion=form.descripcion.data
             )
             db.commit()
-            return redirect(url_for('index'))
-    return render_template('ppl/create.html', form=form)
+            print({'persona': persona.to_dict()})
+            return redirect(url_for('ppl.index'))
+    elif request.method == 'GET':
+        return render_template('ppl/create.html', form=form)
+    elif request.method == 'POST' and not form.validate_on_submit():
+        return render_template('ppl/create.html', form=form)
 
 @routing.route('/edit/<persona_id>', methods=['GET', 'POST'])
 def edit(persona_id):
@@ -54,4 +58,4 @@ def delete(persona_id):
     persona = PersonaPrivadaDeLibertad.get(id_persona_privada=persona_id)
     persona.delete()
     db.commit()
-    return redirect(url_for('index'))
+    return redirect(url_for('ppl.index'))

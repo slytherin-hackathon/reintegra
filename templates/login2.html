@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Reintegra</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- test -->
+  <style>
+    .bg-gradient {
+      background-image: linear-gradient(to right, #ECE9E6 0%, #FFFFFF 100%);
+    }
+  </style>
+</head>
+<body class="bg-gradient flex justify-center items-center min-h-screen">
+  <div class="w-[45%] px-6 py-4">
+    <h1 class="text-4xl font-bold mb-4">Bienvenido a Reintegra</h1>
+    <h2 class="text-2xl font-semibold mb-4">Seguimiento de Programas e Iniciativas de Reinserción Social</h2>
+    <p class="mb-4">Reintegra aspira a transformar adversidades en oportunidades, mejorando significativamente la calidad de vida de las personas.</p>
+    <p class="mb-4">Nuestro objetivo es simplificar el proceso de reinserción mediante el uso de datos, fomentando así segundas oportunidades y forjando un futuro más inclusivo y empático para todos los ciudadanos.    </p>
+    <p class="underline text-blue-500 hover:text-blue-700 mb-12"> <a href="https://docs.google.com/document/d/e/2PACX-1vQeDB_dXjdQnSkBOstB8JdvIYxFz5WbILXYMVwagEtfxa640ztAmDqal4ws4lMGGN17g-_WZoa2YBP2/pub">Release Notes</a> </p>
+    <div class="my-10">
+        <img src="{{ url_for('static', filename='img/penguin-academy.png') }}" alt="Logo" class=" w-[50px] h-auto mb-4">
+        <p class="text-bold">Proyecto parte del Penguin Bootcamp 16 — Abril, 2023</p>
+    </div>  
+</div>
+  <div class="bg-white shadow-md rounded-[24px] w-[45%] px-6 py-4" id="Form-de-Login">
+        <header class="text-center">
+          <img src="{{ url_for('static', filename='img/logo/2x/isotipo-transparente@2x.png') }}" alt="Logo" class="mx-auto mb-4">
+          <h1 class="text-3xl font-bold mb-2">Reintegra</h1>
+          <h2 class="text-xl font-bold">Seguimiento de Programas e Iniciativas de Reinserción Social</h2>
+        </header>
+    
+        <form action="/login" method="POST" class="mt-8">
+    
+          <div class="mb-4">
+            <label for="email" class="block text-dark font-bold mb-2">Email</label>
+            <input type="email" id="email" name="email" placeholder="Email" class="w-full px-3 py-2 border border-accent rounded-md focus:border-2 focus:outline-none">
+          </div>
+    
+          <div class="mb-6">
+            <label for="password" class="block text-dark font-bold mb-2">Password</label>
+            <input type="password" id="password" name="password" placeholder="Password" class="w-full px-3 py-2 border border-accent rounded-md focus:border-2 focus:outline-none mb-2">
+          </div>
+    
+          <div>
+            <button type="submit" class="w-full py-2 bg-[#364F6B] text-white font-bold rounded-md hover:bg-blue-500 mb-2">Iniciar Sesión</button>
+            <button type="submit" class="w-full py-2 bg-[#364F6B] text-white font-bold rounded-md hover:bg-blue-500 mb-2">Registrarse</button
+          </div>
+    
+        </form>
+  </div>
+</body>
+</html>

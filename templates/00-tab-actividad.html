@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reintegra</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Estilo que permite mejorar la farra de navegación secundaria -->
+  <style>
+    .tab:focus {
+      outline: none;
+    }
+    
+  </style>
+  <!-- Script que permite agregar efecto a la barra de navegación secundaria -->
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('bg-blue-400'));
+        tabs.forEach(t => t.classList.add('bg-blue-300'));
+        tab.classList.remove('bg-blue-300');
+        tab.classList.add('bg-blue-400');
+      });
+    });
+  </script>
+
+</head>
+<body class="bg-slate-200">
+  <header class="bg-[#112D4E]">
+    <div class="container mx-auto flex flex-wrap justify-between items-center py-4">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <img src="{{ url_for('static', filename='/img/logo/2x/logo-transparente-fondos-oscuros@2x.png') }}" alt="Logo" class="w-[150px] h-full mr-4">
+      </div>
+      
+      <!-- Barra de Navegación -->
+      <nav class="hidden md:flex">
+        <ul class="flex space-x-4 items-center">
+          <li><a href="" class="text-white px-3 py-2 rounded hover:bg-blue-500">Inicio</a></li>
+          <li><a href="" class="text-white px-3 py-2 rounded hover:bg-blue-500">Crear PPL</a></li>
+          <li><a href="" class="text-white px-3 py-2 rounded hover:bg-blue-500">Modificar PPL</a></li>
+          <li><a href="" class="text-white px-3 py-2 rounded hover:bg-blue-500">Crear Pulsera</a></li>
+          <li><a href="" class="text-white px-3 py-2 rounded hover:bg-blue-500">Asignar Pulsera</a></li>
+          <li>
+            <form class="relative">
+              <input type="search" class="rounded-full pl-3 pr-8 py-2 bg-gray-200 text-black focus:outline-none focus:bg-white" placeholder="Buscar">
+              <button type="submit" class="absolute right-0 top-0 mt-2 mr-2"></button>
+            </form>
+          </li>
+          <!-- Usuario que Inició Sesión -->
+          <li>
+            <span class="text-white px-3">{{ fulano_logueado }}</span>
+            <a href="{{ url_for('logoff') }}" class="text-xs text-white px-3 py-2 rounded hover:bg-blue-500">Cerrar Sesión</a>
+          </li>
+        </ul>
+      </nav>
+      <button class="md:hidden focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-6 w-6 text-white">
+          <path fill-rule="evenodd" d="M4 5a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zm0 6a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zm1 5a1 1 0 100 2h10a1 1 0 100-2H5z" clip-rule="evenodd"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+    
+  <main class="container mx-auto mt-8 grid grid-cols-12 h-screen">
+
+    <!-- Columna 1: Información Personal -->
+<!-- Columna 1: Información Personal -->
+<section id="Columna-1" class="col-span-3 bg-white rounded-[15px] m-4  px-6 py-3">
+  <img src="{{ url_for('static', filename='img/avatar-placeholder.png') }}  " alt="Person" class="w-[150] h-[150] object-cover mb-4 mx-auto rounded-full shadow-lg">
+  <div class="text-center">
+    <p class="font-bold text-lg">Juan Antonio</p>
+    <p class="font-bold text-lg">Pérez Rodríguez</p>
+    <p><span class="font-semibold">Nacimiento:</span> 01/01/2000</p>
+    <p><span class="font-semibold">Doc. Identidad:</span> 01/01/2000</p>
+    <p><span class="font-semibold">Género:</span> Masculino</p>
+    <p><span class="font-semibold">Fecha de Ingreso:</span> 01/01/2022</p>
+    <p><span class="font-semibold">Días Activos:</span> 1 año 3 meses 2 semanas 2 días</p>
+    <p><span class="font-semibold">Estado:</span> Procesado</p>
+
+  </div>
+</section>
+      
+    <!-- Columna 2: Actualizaciones -->
+    <section id="Columna-2" class="col-span-6 bg-white rounded-[15px] m-4  px-6 py-3">
+    
+    <!-- Navegación Interna -->
+    <nav>
+        <ul class="flex space-x-1">
+          <li>
+            <button class="text-black px-4 py-2 bg-blue-300 rounded-t-lg focus:bg-blue-600 hover:bg-blue-500 tab">
+              Actividad
+            </button>
+          </li>
+          <li>
+            <button class="text-black px-4 py-2 bg-blue-300 rounded-t-lg focus:bg-blue-600 hover:bg-blue-500 tab">
+              Estadísticas
+            </button>
+          </li>
+          <li>
+            <button class="text-black px-4 py-2 bg-blue-300 rounded-t-lg focus:bg-blue-600 hover:bg-blue-500 tab">
+              Psicosocial
+            </button>
+          </li>
+          <li>
+            <button class="text-black px-4 py-2 bg-blue-300 rounded-t-lg focus:bg-blue-600 hover:bg-blue-500 tab">
+              Laboral
+            </button>
+          </li>
+          <li>
+            <button class="text-black px-4 py-2 bg-blue-300 rounded-t-lg focus:bg-blue-600 hover:bg-blue-500 tab">
+              Educación
+            </button>
+          </li>
+          <li>
+            <button class="text-black px-4 py-2 bg-blue-300 rounded-t-lg focus:bg-blue-600 hover:bg-blue-500 tab">
+              Penal
+            </button>
+          </li>
+        </ul>
+      </nav>       
+
+      <!--Comentarios Técnicos Anteriores -->
+     
+      <div class="mt-4">
+        <div class="bg-gray-100 p-3 mb-2 comentario rounded shadow-md">
+          <p>Se realizó una evaluación de personalidad. Todo transcurrió con normalidad. No se registran eventos ni problemas.</p>
+          <div class="flex justify-end info-usuario-log mt-2 text-xs">
+              <p class="font-bold px-2 bg-gray-200 rounded-l">Joaquín Prono, Psicólogo</p>
+              <p class="font-normal px-2 bg-gray-200">15/04/2023</p>
+              <p class="font-normal px-2 bg-gray-200 rounded-r">10:30 AM</p>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <div class="bg-gray-100 p-3 mb-2 comentario rounded shadow-md">
+            <p>Se actualizó el currículum de actividades educativas. Se agregó a la malla el desarrollo de habilidades de programación.</p>
+            <div class="flex justify-end info-usuario-log mt-2 text-xs">
+                <p class="font-bold px-2 bg-gray-200 rounded-l">Cecilia Reyes, Educadora</p>
+                <p class="font-normal px-2 bg-gray-200">13/04/2023</p>
+                <p class="font-normal px-2 bg-gray-200 rounded-r">08:30 AM</p>
+            </div>
+          </div>
+  
+    </section>
+<!-- Columna 3 -->
+  <section id="Columna-3" class="bg-white col-span-3 rounded-[15px] m-4  px-6 py-3">
+    
+    <!-- Reconocimientos -->
+    <div class="mb-8">
+      <h2 class="font-bold mb-2">Reconocimientos</h2>
+      <div class="grid grid-cols-5 gap-4 justify-items-center">
+        <div class="group">
+          <img src="https://via.placeholder.com/50" alt="insignia-1" class="mb-2">
+          <p class="text-center invisible group-hover:visible absolute bg-gray-100 px-2 py-1 rounded shadow-md">Metas Mensuales Completas</p>
+        </div>
+        <div class="group">
+          <img src="https://via.placeholder.com/50" alt="insignia-2" class="mb-2">
+          <p class="text-center invisible group-hover:visible absolute bg-gray-100 px-2 py-1 rounded shadow-md">Terapia Mensual Cumplida</p>
+        </div>
+        <div class="group">
+          <img src="https://via.placeholder.com/50" alt="insignia-3" class="mb-2">
+          <p class="text-center invisible group-hover:visible absolute bg-gray-100 px-2 py-1 rounded shadow-md">Conduta Mensual Positiva</p>
+        </div>
+        <div class="group">
+          <img src="https://via.placeholder.com/50" alt="insignia-4" class="mb-2">
+          <p class="text-center invisible group-hover:visible absolute bg-gray-100 px-2 py-1 rounded shadow-md">Horas de Taller Completas</p>
+        </div>
+        <div class="group">
+          <img src="https://via.placeholder.com/50" alt="insignia-5" class="mb-2">
+          <p class="text-center invisible group-hover:visible absolute bg-gray-100 px-2 py-1 rounded shadow-md">Programa de Rehabilitación Finalizado</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Programas y Actividades -->
+    <div>
+      <h2 class="font-bold mb-2">Programas y Actividades</h2>
+      <form>
+        <div class="mb-2">
+          <input type="checkbox" id="arts" name="program" value="Artes Gráficas">
+          <label for="arts">Artes Gráficas</label>
+        </div>
+        <div class="mb-2">
+          <input type="checkbox" id="carp" name="program" value="Carpintería">
+          <label for="carp">Carpintería</label>
+        </div>
+        <div class="mb-2">
+          <input type="checkbox" id="cocina" name="program" value="Cocina">
+          <label for="cocina">Cocina</label>
+        </div>
+        </form>
+        <div class="flex justify-end">
+            <button class="rounded-full bg-gray-200 p-2 justify-items-end">Publicar</button>
+          </div>
+    
+      </section>
+  </main>
+</body>
+</html>

@@ -1,3 +1,5 @@
+{% extends "base/header.html" %}
+{% block content %}
 <!-- templates/ps/index.html -->
 
 <h1>Plan de Salida de Libertad</h1>
@@ -33,3 +35,5 @@
 </table>
 
 <a href="{{ url_for('ps.create') }}">Crear un nuevo plan de salida</a>
+  
+  {% endblock %}

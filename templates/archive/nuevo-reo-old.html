@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reintegra - Nuevo Registro PPL</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="color_primario min-h-screen flex items-center justify-center">
+  <div class="bg-white shadow-md rounded p-6 w-full md:w-1/2 lg:w-1/3">
+    <header class="text-center">
+      <img src="https://via.placeholder.com/150" alt="fotografia" class="mx-auto mb-4"> <!-- aca deberiamos de cargar la foto del reo -->
+      <h1 class="text-3xl text-dark font-bold">REGISTRO DE REO</h1>
+    </header>
+
+    <!-- formulario -->
+    <form action="/login" method="POST" class="mt-8">
+      <div class="mb-4"> 
+        <div class="flex">
+            <label for="email" class="block text-dark font-bold mb-2">Nombre: </label>
+            <input type="text" id="email" name="Nombre" placeholder="Nombre" class=" px-3 py-2 border border-accent rounded-md focus:border-2 focus:outline-none">
+         </div>
+            <div class="flex mb-4">
+            <label for="email" class="block text-dark font-bold mb-2">Apellido: </label>
+            <input type="text" id="email" name="Apellido" placeholder="Apellido" class="px-3 py-2 border border-accent rounded-md focus:border-2 focus:outline-none">
+             </div>
+        </div>
+      <div class=" flex mb-4">
+        <label for="email" class="block text-dark font-bold mb-2">Numero de CÃ©dula: </label>
+        <input type="text" id="email" name="Numero de cedula" placeholder="Numero de cedula" class=" px-3 py-2 border border-accent rounded-md focus:border-2 focus:outline-none">
+      </div>
+      <div class="flex mb-4">
+        <label for="email" class="block text-dark font-bold mb-2">Fecha de nacimiento: </label>
+        <input type="text" id="email" name="Fecha de nacimiento" placeholder="Fecha de nacimiento" class=" px-3 py-2 border border-accent rounded-md focus:border-2 focus:outline-none">
+      </div>
+       <!-- esta opcion debe ser un dropdown -->
+      <div class="flex mb-4">
+        <label for="email" class="block text-dark font-bold mb-2">Prision: </label> 
+        <input type="text" id="email" name="Prision" placeholder="Prision" class=" px-3 py-2 border border-accent rounded-md focus:border-2 focus:outline-none">
+      </div>
+      <div class="flex mb-4">
+        <label for="email" class="block text-dark font-bold mb-2">Fecha de Ingreso: </label>
+        <input class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="date" placeholder="Ingrese la fecha">
+      </div>
+      <div class="flex mb-4">
+        <label for="email" class="block text-dark font-bold mb-2">Fecha de Liberacion: </label>
+        <input class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="date" placeholder="Ingrese la fecha">
+      </div>
+      <div class="flex mb-4">
+        <label for="email" class="block text-dark font-bold mb-2">Tipo de Crimen: </label>
+        <input type="text" id="email" name="Tipo de Crimen" placeholder="Tipo de Crimen" class=" px-3 py-2 border border-accent rounded-md focus:border-2 focus:outline-none">
+      </div>
+      <div class="flex mb-4">
+        <label for="email" class="block text-dark font-bold mb-2">Nivel Criminologico: </label>
+        <input type="text" id="email" name="Nivel Criminologico" placeholder="Nivel Criminologico" class=" px-3 py-2 border border-accent rounded-md focus:border-2 focus:outline-none">
+      </div>
+        <!-- esta opcion debe ser un dropdown -->
+      <div class="flex mb-4">
+        <label for="email" class="block text-dark font-bold mb-2">Estado: </label> 
+        <input type="text" id="email" name="Estado" placeholder="Estado" class=" px-3 py-2 border border-accent rounded-md focus:border-2 focus:outline-none">
+      </div>
+      <div class="flex items-center justify-between">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+            Registrar Reo
+        </button>
+    </div>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reintegra</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+  <header class="bg-blue-600 p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="flex items-center">
+        <img src="static/img/1x/fondo-transparente.png" alt="Logo" class="w-full h-full mr-4">
+        <h1 class="text-white text-lg font-bold">Reintegra</h1>
+      </div>
+      <nav>
+        <ul class="flex space-x-4">
+          <li><button class="text-white">Psicosocial</button></li>
+          <li><button class="text-white">Laboral</button></li>
+          <li><button class="text-white">Educación</button></li>
+          <li><button class="text-white">Penal</button></li>
+        </ul>
+      </nav>
+      <button class="text-white">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  </header>
+  <main class="container mx-auto mt-8 grid grid-cols-3 gap-4">
+    <section class="bg-white p-4 overflow-y-auto">
+      <img src="placeholder-person-image-url" alt="Person" class="w-full h-32 object-cover mb-4">
+      <p><span class="font-bold">Nombre:</span> Juan Antonio</p>
+      <p><span class="font-bold">Apellido:</span> Pérez Rodríguez</p>
+      <p><span class="font-bold">Nacimiento:</span> 01/01/2000</p>
+    </section>
+    <section class="bg-white p-4 overflow-y-auto">
+      <textarea class="w-full mb-4" placeholder="Add a note..."></textarea>
+      <div class="mb-4">
+        <p class="font-bold">User</p>
+        <p>Date: <span class="font-normal">15/04/2023</span></p>
+        <p>Hour: <span class="font-normal">10:30 AM</span></p>
+      </div>
+      <div>
+        <p class="font-bold">User</p>
+        <p>Date: <span class="font-normal">16/04/2023</span></p>
+        <p>Hour: <span class="font-normal">3:15 PM</span></p>
+      </div>
+    </section>
+    <section class="bg-white p-4 overflow-y-auto">
+      <!-- Blank column -->
+    </section>
+  </main>
+</body>
+</html>
