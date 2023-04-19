@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from database import * 
-from forms import PSform
+from forms import PlanSalidaForm as PSform
 
 routingPS = Blueprint('ps', __name__)
 
