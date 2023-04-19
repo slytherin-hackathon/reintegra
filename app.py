@@ -19,6 +19,13 @@ app.secret_key = ('esto_no_es_secreto')  #establezco una 'clave secreta'
 db = Database()
 db.bind(provider='sqlite', filename='database.sqlite', create_db=True)
 
+#defino una entidad 'User' con campos de nombre de usuario unico (no debe de haber repetido) y contrasenha
+class User(db.Entity, UserMixin):
+    username = Required(str, unique=True)
+    email = Required(str)
+    #login = Required(str, unique=True)
+    password = Required(str)
+
 # Generate database tables
 db.generate_mapping(create_tables=True)
 
@@ -39,30 +46,43 @@ login_manager.login_view = 'login'
 def load_user(user_id):
     return db.User.get(id=user_id)
 
+#Crear una ruta para el formulario de registro
+@app.route("/registro", methods=['GET','POST'])
+def registro():
+    if request.method == 'POST':
+        username = request.form['name']
+        email = request.form['email']
+        password = request.form['password']
+        with db_session:
+            user= User(username=username, email=email, password=password)
+            return 'Usuario registrado con mucho exito'
+    else:
+        return render_template('signup.html')
 
 #Creo una ruta para el formulario de login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        username = request.form['usuario']
+        email = request.form['email']
+        #username = request.form['usuario']
         password = request.form['password']
-        user = db.select('select * from User where username= $username and password=$password')
-        if user:
-            session['username'] = username
+        email = db.select('select * from User where email=$email and password=$password',{'email': email, 'password': password})
+        if email:
+            session['email'] = email
             return redirect(url_for('index'))
         else:
             error = 'Invalid username or password. Please try again.'
-            return render_template('login.html', error=error)
+            return render_template('login3.html', error=error)
     else:
-        return render_template('login.html')
+        return render_template('login3.html')
 
 
 
 #Creo una ruta para la página principal de la aplicación, que solo puede ser accedida después de que el usuario haya iniciado sesión:
 @app.route('/')
 def index():
-    if 'username' in session:
-        return render_template('educacion-main.html', username=session['username'])
+    if 'email' in session:
+        return render_template('educacion-main3.html', email=session['email'])
     else:
         return redirect(url_for('login'))
 

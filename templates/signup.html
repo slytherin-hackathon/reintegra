@@ -10,11 +10,11 @@
 <body class="bg-slate-200 flex justify-center">
   <div class="bg-white shadow-md rounded-[24px] w-[30%] my-16 px-6 py-4">
     <header class="text-center">
-      <img src="static/img/logo/2x/isotipo-transparente@2x.png" alt="Logo" class="mx-auto mb-4">
+      <img src="{{ url_for('static', filename='img/logo/2x/isotipo-transparente@2x.png') }}" alt="Logo" class="mx-auto mb-4">
       <h1 class="text-3xl text-dark font-bold mb-2">Reintegra</h1>
       <h2 class="text-xl text-dark font-bold">Registro de Nuevos Usuarios</h2>
     </header>
-    <form action="/signup" method="POST" class="mt-8">
+    <form action="/registro" method="POST" class="mt-8">
       <div class="mb-4">
         <label for="name" class="block text-dark font-bold mb-2">Nombre Completo</label>
         <input type="text" id="name" name="name" placeholder="Nombre Completo" class="w-full px-3 py-2 border border-accent rounded-md focus:border-2 focus:outline-none">

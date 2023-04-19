@@ -1,12 +1,13 @@
+
+
 from flask import Flask, render_template, request, redirect, url_for
-from flask_wtf import FlaskForm
+from flask_wtf import FlaskForm 
 from flask_wtf.file import FileField, FileAllowed
 from werkzeug.utils import secure_filename
 from wtforms import StringField, DateField, TextAreaField, SelectField
 from wtforms.validators import DataRequired
 from pony.orm import db_session, select
-from pony.orm.core import EntityMeta
-from database import Image, db
+from database import *
 
 penitenciaria_choices = [
         ('emboscada', 'Penitenciaria Juana de la Vega'),
@@ -25,7 +26,6 @@ penitenciaria_choices = [
         ('regional_de_encarnacion', 'Penitenciaria Regional de Encarnacion')
     ]
 
-# Create Flask-WTF form for PersonaPrivadaDeLibertad
 class PersonaForm(FlaskForm):
     nombre = StringField('Nombre', validators=[DataRequired()],
                          render_kw={'class': "px-3 py-2 border border-accent rounded-md focus:border-2 focus:outline-none"})
@@ -55,34 +55,34 @@ class PersonaForm(FlaskForm):
         super().__init__(*args, **kwargs)
         self.penitenciaria.choices = penitenciaria_choices
 
-
 class CreateReporteBuenaConductaForm(FlaskForm):
     id_persona_privada = StringField('ID Persona Privada de Libertad', validators=[DataRequired()])
     fecha_reporte = DateField('Fecha de Reporte', validators=[DataRequired()])
     conducta = StringField('Conducta', validators=[DataRequired()])
     observaciones = TextAreaField('Observaciones', validators=[DataRequired()])
 
-
 class UpdateReporteBuenaConductaForm(FlaskForm):
     fecha_reporte = DateField('Fecha de Reporte', validators=[DataRequired()])
     conducta = StringField('Conducta', validators=[DataRequired()])
     observaciones = TextAreaField('Observaciones', validators=[DataRequired()])
         
-
-
-# Create Flask-WTF form for Organismo Tecnico Criminologico
 class OTCForm(FlaskForm):
     id_persona_privada = StringField('ID Persona Privada de Libertad', validators=[DataRequired()])
     fecha_evaluacion = DateField('Fecha de Evaluación', format='%Y-%m-%d', validators=[DataRequired()])
     riesgo = StringField('Riesgo', validators=[DataRequired()])
     observaciones = TextAreaField('Observaciones', validators=[DataRequired()])
 
-# Create Flask-wtf for plan salida de libertad
-
 class PlanSalidaForm(FlaskForm):
 
     id_persona_privada = StringField('ID Persona Privada de Libertad', validators=[DataRequired()])
     fecha_inicio = DateField('Fecha de Inicio', format='%Y-%m-%d', validators=[DataRequired()])
     fecha_fin = DateField('Fecha de Fin', format='%Y-%m-%d', validators=[DataRequired()])
+
     actividades = TextAreaField('Actividades', validators=[DataRequired()])
     seguimiento = TextAreaField('Seguimiento', validators=[DataRequired()])
+
+class ReportePsicologicoForm(FlaskForm):
+    id_persona_privada = StringField('ID Persona Privada', validators=[DataRequired()])
+    fecha_evaluacion = DateField('Fecha de Evaluación', validators=[DataRequired()], format='%Y-%m-%d')
+    diagnostico = TextAreaField('Diagnóstico', validators=[DataRequired()])
+    recomendaciones = TextAreaField('Recomendaciones', validators=[DataRequired()])
