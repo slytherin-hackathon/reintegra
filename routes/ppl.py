@@ -36,18 +36,20 @@ def create():
 def edit(persona_id):
     print('persona_id: ', persona_id)
 
-    persona = PersonaPrivadaDeLibertad.get(id_persona_privada=persona_id)
+    persona = PersonaPrivadaDeLibertad[persona_id]
     print('persona: ', persona)
     form = PersonaForm(obj=persona)
-    if request.method == 'POST':
-        if form.validate_on_submit():
+    if request.method == 'POST' and form.validate_on_submit():
+        with db_session:
             persona.set(
                 nombre=form.nombre.data,
                 apellido=form.apellido.data,
                 fecha_nacimiento=form.fecha_nacimiento.data,
                 genero=form.genero.data,
                 documento_identidad=form.documento_identidad.data,
-                # fotografia=form.fotografia.data
+                fecha_de_ingreso=form.fecha_de_ingreso.data,
+                fecha_de_salida=form.fecha_de_salida.data,
+                descripcion=form.descripcion.data
             )
             db.commit()
             return redirect(url_for('ppl.index'))
