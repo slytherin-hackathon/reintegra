@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Formulario de PSform</title>
+  </head>
+  <body>
+    <h1>Formulario de PSform</h1>
+    <form action="{{ url_for('ps.create') }}" method="POST">
+      {{ form.hidden_tag() }}
+      <p>
+        {{ form.id_persona_privada.label }}<br>
+        {{ form.id_persona_privada() }}
+      </p>
+      <p>
+        {{ form.fecha_inicio.label }}<br>
+        {{ form.fecha_inicio() }}
+      </p>
+      <p>
+        {{ form.fecha_fin.label }}<br>
+        {{ form.fecha_fin() }}
+      </p>
+      <p>
+        {{ form.actividades.label }}<br>
+        {{ form.actividades() }}
+      </p>
+      <p>
+        {{ form.seguimiento.label }}<br>
+        {{ form.seguimiento() }}
+      </p>
+      <p><input type="submit" value="Enviar"></p>
+    </form>
+  </body>
+</html>
