@@ -13,18 +13,14 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 # Inicializacion de la app
 app = Flask(__name__)
-app.secret_key = 'mysecretkey'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.secret_key = ('esto_no_es_secreto')  #establezco una 'clave secreta'
 
+# Set up SQLite database connection
+db = Database()
+db.bind(provider='sqlite', filename='database.sqlite', create_db=True)
 
-@app.route('/upload', methods=['POST'])
-def upload():
-    file = request.files['file']
-    filename = file.filename
-    image_data = file.read()
-    image = Image(filename=filename, image_data=image_data)
-    db.commit()
-    return 'Image uploaded successfully'
+# Generate database tables
+db.generate_mapping(create_tables=True)
 
 # URLS routing
 app.register_blueprint( routing, url_prefix='/ppl')
@@ -60,6 +56,8 @@ def login():
     else:
         return render_template('login.html')
 
+
+
 #Creo una ruta para la página principal de la aplicación, que solo puede ser accedida después de que el usuario haya iniciado sesión:
 @app.route('/')
 def index():
@@ -67,6 +65,7 @@ def index():
         return render_template('educacion-main.html', username=session['username'])
     else:
         return redirect(url_for('login'))
+
 
 
 if __name__ == '__main__':

@@ -1,0 +1,15 @@
+
+    <h1>Reporte Psicológico</h1>
+    <dl>
+        <dt>ID:</dt>
+        <dd>{{ reporte.id_reporte_psicologico }}</dd>
+        <dt>Persona:</dt>
+        <dd>{{ reporte.persona_privada }}</dd>
+        <dt>Fecha de Evaluación:</dt>
+        <dd>{{ reporte.fecha_evaluacion }}</dd>
+        <dt>Diagnóstico:</dt>
+        <dd>{{ reporte.diagnostico }}</dd>
+        <dt>Recomendaciones:</dt>
+        <dd>{{ reporte.recomendaciones }}</dd>
+    </dl>
+    <a href="{{ url_for('modificar_reporte', id=reporte.id_reporte_psicologico)}}">Modificar</a>
