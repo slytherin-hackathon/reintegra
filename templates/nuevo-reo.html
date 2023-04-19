@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template Reintegra</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+</head>
+<body class="bg-slate-200">
+  <header class="bg-[#112D4E]">
+    <div class="container mx-auto flex flex-wrap justify-between items-center py-4">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <img src="static/img/logo/2x/logo-transparente-fondos-oscuros@2x.png" alt="Logo" class="w-[150px] h-full mr-4">
+      </div>
+      
+      <!-- Barra de Navegación -->
+      <nav class="hidden md:flex">
+        <ul class="flex space-x-4 items-center">
+          <li><a href="" class="text-white px-3 py-2 rounded hover:bg-blue-500">Inicio</a></li>
+          <li><a href="" class="text-white px-3 py-2 rounded hover:bg-blue-500">Crear PPL</a></li>
+          <li><a href="" class="text-white px-3 py-2 rounded hover:bg-blue-500">Modificar PPL</a></li>
+          <li><a href="" class="text-white px-3 py-2 rounded hover:bg-blue-500">Crear Pulsera</a></li>
+          <li><a href="" class="text-white px-3 py-2 rounded hover:bg-blue-500">Asignar Pulsera</a></li>
+          <li>
+            <form class="relative">
+              <input type="search" class="rounded-full pl-3 pr-8 py-2 bg-gray-200 text-black focus:outline-none focus:bg-white" placeholder="Buscar">
+              <button type="submit" class="absolute right-0 top-0 mt-2 mr-2"></button>
+            </form>
+          </li>
+          <!-- Usuario que Inició Sesión -->
+          <li>
+            <span class="text-white px-3">{{ fulano_logueado }}</span>
+            <a href="{{ url_for('logoff') }}" class="text-xs text-white px-3 py-2 rounded hover:bg-blue-500">Cerrar Sesión</a>
+          </li>
+        </ul>
+      </nav>
+      <button class="md:hidden focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-6 w-6 text-white">
+          <path fill-rule="evenodd" d="M4 5a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zm0 6a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zm1 5a1 1 0 100 2h10a1 1 0 100-2H5z" clip-rule="evenodd"/>
+        </svg>
+      </button> 
+    </div>
+  </header>
+
+  <!-- Formulario -->
+    <div class="max-w-xl mx-auto my-4 p-4 bg-white rounded shadow">
+        <!-- Título -->
+      <h1 class="text-2xl text-center font-bold text-gray-800 mb-4">Registro de Persona Privada de Libertad</h1>
+
+      <form>
+
+        <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2" for="status">Estado:</label>
+            <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="status">
+                <option value="1">Procesado</option>
+                <option value="2">Condenado</option>
+                <option value="3">Liberado</option>
+            </select>
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="prison-id">Nivel de Riesgo:</label>
+          <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="prison-id">
+            <option value="1">Bajo</option>
+            <option value="2">Medio</option>
+            <option value="3">Alto</option>
+          </select>
+        </div>
+        
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="name">Nombre:</label>
+          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Inserte el Nombre" />
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="last-name">Apellido:</label>
+          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="last-name" type="text" placeholder="Inserte el Apellido" />
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="id-number">Número de Documento:</label>
+          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="id-number" type="text" placeholder="1234567890" />
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="date-of-birth">Fecha de Nacimiento:</label>
+          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="date-of-birth" type="date" />
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="prison-id">Penitenciaría:</label>
+          <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="prison-id">
+                <option value="1">Penitenciaría Regional de Encarnación</option>
+                <option value="2">Penitenciaría Regional de Misiones</option>
+                <option value="3">Penitenciaría Regional de Coronel Oviedo</option>
+                <option value="4">Penitenciaría Regional de Emboscada (Antigua)</option>
+                <option value="5">Penitenciaría Regional de Pedro Juan Caballero</option>
+                <option value="6">Penitenciaría Regional de San Pedro</option>
+                <option value="7">Centro penitenciario para mujeres “Serafina Dávalos” en Coronel Oviedo</option>
+                <option value="8">Penitenciaría Regional de Ciudad del Este</option>
+                <option value="9">Penitenciaría Regional de Villarrica</option>
+                <option value="10">Penitenciaría “Padre De La Vega” en Emboscada.</option>
+                <option value="11">Centro penitenciario para mujeres “Juana Ma. De Lara” en Ciudad del Este</option>
+                <option value="12">Penitenciaría Regional de Concepción</option>
+                <option value="13">Centro penitenciario para mujeres “Casa del Buen Pastor” en Asunción</option>
+                <option value="14">Penitenciaría Nacional (Tacumbú) en Asunción.</option>
+                <option value="15">Unidad Penitenciaria Industrial Esperanza en Asunción.</option>
+                <option value="16">Granja penitenciaria semiabierto “Ko'e Pyahu” en Asunción.</option>
+                <option value="17">Centro penitenciario semiabierto para mujeres “Hogar Nueva Oportunidad” en Asunción.</option>
+                <option value="18">Granja penitenciaria semiabierto “Itá Porá” en Emboscada</option>
+            </select>
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="date-of-admission">Fecha de Ingreso:</label>
+          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="date-of-admission" type="date" />
+        </div>
+
+        <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2" for="date-of-release">Fecha de Salida:</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="date-of-admission" type="date" />
+        </div>
+
+        <!-- Adjuntar Fotografía -->
+        <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2" for="profile-picture">Adjuntar Fotografía:</label>
+            <input type="file" id="profile-picture" name="profile-picture" accept=".jpg, .jpeg, .png">
+
+        </div>
+                              
+      </form>
+    </div>
+  </body>
+</html>
