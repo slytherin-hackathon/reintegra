@@ -70,7 +70,7 @@ class OTCForm(FlaskForm):
     riesgo = StringField('Riesgo', validators=[DataRequired()])
     observaciones = TextAreaField('Observaciones', validators=[DataRequired()])
 
-class PlanSalidaForm(FlaskForm):
+class PSform(FlaskForm):
 
     id_persona_privada = StringField('ID Persona Privada de Libertad', validators=[DataRequired()])
     fecha_inicio = DateField('Fecha de Inicio', format='%Y-%m-%d', validators=[DataRequired()])

@@ -19,15 +19,15 @@
   <tbody>
     {% for ps in ps_list %}
     <tr>
-      <td>{{ ps.id }}</td>
+      <td>{{ ps.id_persona_privada }}</td>
       <td>{{ ps.id_persona_privada.nombre }} {{ ps.id_persona_privada.apellido }}</td>
       <td>{{ ps.fecha_inicio }}</td>
       <td>{{ ps.fecha_fin }}</td>
       <td>{{ ps.actividades }}</td>
       <td>{{ ps.seguimiento }}</td>
       <td>
-        <a href="{{ url_for('ps.update', id=ps.id) }}">Editar</a>
-        <a href="{{ url_for('ps.delete', id=ps.id) }}">Eliminar</a>
+        <a href="{{ url_for('ps.update', id=ps.id_persona_privada) }}">Editar</a>
+        <a href="{{ url_for('ps.delete', id=ps.id_persona_privada) }}">Eliminar</a>
       </td>
     </tr>
     {% endfor %}
