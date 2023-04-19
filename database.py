@@ -25,7 +25,7 @@ class PersonaPrivadaDeLibertad(db.Entity):
     reporte_psicologico = Set('ReportePsicologico') # Define reverse attribute
     reporte_buena_conducta = Set('ReporteBuenaConducta') # Define reverse attribute
     
-    def __str__(self):
+    def __str__(self) -> str:
         return str(self.id_persona_privada)
 
 class OrganismoTecnicoCriminologico(db.Entity):
@@ -35,6 +35,9 @@ class OrganismoTecnicoCriminologico(db.Entity):
     riesgo = Required(str)
     observaciones = Required(LongStr)
 
+    def __str__(self) -> str:
+        return str(self.id_otc)
+
 class PlanSalidaLibertad(db.Entity):
     id_plan_salida = PrimaryKey(int, auto=True)
     id_persona_privada = Required(PersonaPrivadaDeLibertad) # Update reference to entity
@@ -43,6 +46,9 @@ class PlanSalidaLibertad(db.Entity):
     actividades = Required(LongStr)
     seguimiento = Required(LongStr)
 
+    def __str__(self) -> str:
+        return str(self.id_plan_salida)
+
 class ReportePsicologico(db.Entity):
     id_reporte_psicologico = PrimaryKey(int, auto=True)
     id_persona_privada = Required(PersonaPrivadaDeLibertad) # Update reference to entity
@@ -50,12 +56,18 @@ class ReportePsicologico(db.Entity):
     diagnostico = Required(LongStr)
     recomendaciones = Required(LongStr)
 
+    def __str__(self) -> str:
+        return str(self.id_reporte_psicologico)
+    
 class ReporteBuenaConducta(db.Entity):
     id_reporte_buena_conducta = PrimaryKey(int, auto=True)
     id_persona_privada = Required(PersonaPrivadaDeLibertad) # Update reference to entity
     fecha_reporte = Required(date)
     conducta = Required(str)
     observaciones = Required(LongStr)
+
+    def __str__(self) -> str:
+        return str(self.id_reporte_buena_conducta)
 
 class User(db.Entity, UserMixin):
     username = Required(str, unique=True)

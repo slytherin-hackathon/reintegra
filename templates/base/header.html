@@ -22,11 +22,12 @@
             <!-- Barra de Navegación -->
             <nav class="hidden md:flex">
               <ul class="flex space-x-4 items-center">
-                <li><a href="" class="text-white px-3 py-2 rounded hover:bg-blue-500">Inicio</a></li>
-                <li><a href="" class="text-white px-3 py-2 rounded hover:bg-blue-500">Crear PPL</a></li>
-                <li><a href="" class="text-white px-3 py-2 rounded hover:bg-blue-500">Modificar PPL</a></li>
-                <li><a href="" class="text-white px-3 py-2 rounded hover:bg-blue-500">Crear Pulsera</a></li>
-                <li><a href="" class="text-white px-3 py-2 rounded hover:bg-blue-500">Asignar Pulsera</a></li>
+                <li><a href="{{ url_for('index')}}" class="text-white px-3 py-2 rounded hover:bg-blue-500">Inicio</a></li>
+                <li><a href="{{ url_for('ppl.index')}}" class="text-white px-3 py-2 rounded hover:bg-blue-500">Reos</a></li>
+                <li><a href="{{ url_for('otc.index')}}" class="text-white px-3 py-2 rounded hover:bg-blue-500">Organismo Tecnico Criminologico</a></li>
+                <li><a href="{{ url_for('ps.index')}}" class="text-white px-3 py-2 rounded hover:bg-blue-500">Plan Salida Libertad</a></li>
+                <li><a href="{ url_for('rbc.index')}" class="text-white px-3 py-2 rounded hover:bg-blue-500">Conducta</a></li>
+                <li><a href="{ url_for('rps.index')}" class="text-white px-3 py-2 rounded hover:bg-blue-500">Psicologico</a></li>
                 <li>
                   <form class="relative">
                     <input type="search" class="rounded-full pl-3 pr-8 py-2 bg-gray-200 text-black focus:outline-none focus:bg-white" placeholder="Buscar">
