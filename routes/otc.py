@@ -33,12 +33,12 @@ def create():
 @routingOTC.route('/update/<id>', methods=['GET', 'POST'])
 def update(id):
     # obtener el objeto a actualizar y pasarle los datos al formulario
-    otc = OrganismoTecnicoCriminologico[id]
+    otc = OrganismoTecnicoCriminologico[int(id)]
     otc.id_persona_privada = otc.id_persona_privada.id_persona_privada
     form = OTCForm(obj=otc)
 
     if request.method == 'GET':
-        return render_template('otc/update.html', form=form, id=id)
+        return render_template('otc/update.html', form=form)
     elif request.method == 'POST'and form.validate_on_submit():
             with db_session:
                 persona = PersonaPrivadaDeLibertad[form.id_persona_privada.data]
@@ -48,6 +48,8 @@ def update(id):
                 otc.observaciones = form.observaciones.data
                 db.commit()
                 return redirect(url_for('otc.index'))
+    elif request.method == 'POST' and not form.validate_on_submit():
+        return f'formulario no valido {form.errors}'
 
 @routingOTC.route('/delete/<id>', methods=['GET', 'POST'])
 def delete(id):

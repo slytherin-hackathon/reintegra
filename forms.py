@@ -67,6 +67,7 @@ class UpdateReporteBuenaConductaForm(FlaskForm):
     observaciones = TextAreaField('Observaciones', validators=[DataRequired()])
         
 class OTCForm(FlaskForm):
+    id_otc = StringField('ID OTC')
     id_persona_privada = StringField('ID Persona Privada de Libertad', validators=[DataRequired()])
     fecha_evaluacion = DateField('Fecha de Evaluación', format='%Y-%m-%d', validators=[DataRequired()])
     riesgo = StringField('Riesgo', validators=[DataRequired()])
