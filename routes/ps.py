@@ -7,7 +7,7 @@ routingPS = Blueprint('ps', __name__)
 @routingPS.route('/')
 def index():
     ps_list = PlanSalidaLibertad.select()
-    return render_template('base/header.html', ps_list=ps_list)
+    return render_template('ps/index.html', ps_list=ps_list)
 
  
 @routingPS.route('/create', methods=['GET', 'POST'])
@@ -39,7 +39,7 @@ def update(id):
     ps = PlanSalidaLibertad[id]
     ps.id_persona_privada = ps.id_persona_privada.id_persona_privada
     form = PSform(obj=ps)
-
+    print(form.errors)
     if request.method == 'GET':
         return render_template('ps/update.html', form=form, id=id)
     elif request.method == 'POST'and form.validate_on_submit():

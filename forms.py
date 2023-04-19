@@ -72,20 +72,12 @@ class OTCForm(FlaskForm):
     riesgo = StringField('Riesgo', validators=[DataRequired()])
     observaciones = TextAreaField('Observaciones', validators=[DataRequired()])
 
-<<<<<<< HEAD
-# Create Flask-wtf for plan salida de libertad
-
-class PSform(FlaskForm):
-    id_persona_privada = StringField('ID de la persona privada de libertad', validators=[DataRequired()])
-    fecha_inicio = DateField('Fecha de inicio', format='%Y-%m-%d', validators=[DataRequired()])
-    fecha_fin = DateField('Fecha de finalización', format='%Y-%m-%d', validators=[DataRequired()])
-=======
 class PlanSalidaForm(FlaskForm):
 
     id_persona_privada = StringField('ID Persona Privada de Libertad', validators=[DataRequired()])
     fecha_inicio = DateField('Fecha de Inicio', format='%Y-%m-%d', validators=[DataRequired()])
     fecha_fin = DateField('Fecha de Fin', format='%Y-%m-%d', validators=[DataRequired()])
->>>>>>> origin/frontend_fixes
+
     actividades = TextAreaField('Actividades', validators=[DataRequired()])
     seguimiento = TextAreaField('Seguimiento', validators=[DataRequired()])
 
