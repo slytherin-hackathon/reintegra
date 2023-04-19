@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create OrganismoTecnicoCriminologico</title>
+</head>
+<body>
+	<h1>Create OrganismoTecnicoCriminologico</h1>
+	<form method="POST" action="{{ url_for('otc.create') }}">
+		{{ form.csrf_token }}
+		<div>
+			{{ form.id_persona_privada.label }}
+			{{ form.id_persona_privada }}
+		</div>
+		<div>
+			{{ form.fecha_evaluacion.label }}
+			{{ form.fecha_evaluacion }}
+		</div>
+		<div>
+			{{ form.riesgo.label }}
+			{{ form.riesgo }}
+		</div>
+		<div>
+			{{ form.observaciones.label }}
+			{{ form.observaciones }}
+		</div>
+		<button type="submit">Create</button>
+	</form>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personas Privadas de Libertad</title>
+</head>
+<body>
+    <h1>Personas Privadas de Libertad</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Género</th>
+            <th>Documento de Identidad</th>
+            <th>Fotografía</th>
+            <th>Acciones</th>
+        </tr>
+        {% for persona in personas %}
+        <tr>
+            <td>{{ persona.id_persona_privada }}</td>
+            <td>{{ persona.nombre }}</td>
+            <td>{{ persona.apellido }}</td>
+            <td>{{ persona.fecha_nacimiento }}</td>
+            <td>{{ persona.genero }}</td>
+            <td>{{ persona.documento_identidad }}</td>
+            <td>{{ persona.fotografia }}</td>
+            <td>
+                <a href="{{ url_for('ppl.edit', persona_id=persona.id_persona_privada) }}">Editar</a>
+                <form method="post" action="{{ url_for('ppl.delete', persona_id=persona.id_persona_privada) }}" style="display:inline;">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="submit" value="Eliminar">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('ppl.create') }}">Crear nueva Persona Privada de Libertad</a>
+</body>
+</html>

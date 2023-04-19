@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OrganismoTecnicoCriminologico List</title>
+</head>
+<body>
+	<h1>OrganismoTecnicoCriminologico List</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>ID Persona Privada de Libertad</th>
+				<th>Fecha de Evaluación</th>
+				<th>Riesgo</th>
+				<th>Observaciones</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for otc in otc_list %}
+			<tr>
+				<td>{{ otc.id_otc }}</td>
+				<td>{{ otc.id_persona_privada }}</td>
+				<td>{{ otc.fecha_evaluacion }}</td>
+				<td>{{ otc.riesgo }}</td>
+				<td>{{ otc.observaciones }}</td>
+				<td>
+					<a href="{{ url_for('otc.update', id=otc.id_otc) }}">Update</a>
+					<a href="{{ url_for('otc.delete', id=otc.id_otc) }}">Delete</a>
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<a href="{{ url_for('otc.create') }}">Create New</a>
+</body>
+</html>
